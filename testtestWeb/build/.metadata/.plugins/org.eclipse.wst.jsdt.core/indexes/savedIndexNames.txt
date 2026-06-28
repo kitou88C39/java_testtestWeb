@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/Users/kitoumasaomi/Library/Mobile Documents/com~apple~CloudDocs/java/testtestWeb/build/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+709991631.index
+959712954.index
+378814431.index
+1073768040.index
+1290533601.index
+3109365273.index
