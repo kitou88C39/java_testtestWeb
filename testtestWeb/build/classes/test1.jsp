@@ -14,5 +14,9 @@ pageEncoding="UTF-8"%> <% String name = request.getParameter("name"); String age
     <% } else { %>
       <p>パラメータがありません</p>
     <% } %>
+
+    <% for (int i = 0; i < 10; i++) { %>
+      <p><%= i %></p>
+    <% } %>
   </body>
 </html>
