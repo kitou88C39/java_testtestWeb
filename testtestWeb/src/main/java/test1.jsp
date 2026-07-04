@@ -9,6 +9,10 @@ pageEncoding="UTF-8"%> <% String name = request.getParameter("name"); String age
   </head>
   <body>
     <h1>Hello World</h1>
-    パラメータは<%= name %>で、年齢は<%= age %>です
+    <% if (name != null && age != null) { %>
+      </p>パラメータは<%= name %>で、年齢は<%= age %>です</p>
+    <% } else { %>
+      <p>パラメータがありません</p>
+    <% } %>
   </body>
 </html>
