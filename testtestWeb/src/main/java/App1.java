@@ -19,9 +19,9 @@ public class App1 extends HttpServlet {
         //HTMLを作成する処理
         String html = "<html>"
         + "<body>"
-        + パラメータ名: param1 値: " + param1 + "<br/>"
-        + パラメータ名: param2 値: " + param2 + "<br/>"
-        + パラメータ名: param3 値: " + param3 + "<br/>"
+        + "パラメータ名: param1 値: " + param1 + "<br/>"
+        + "パラメータ名: param2 値: " + param2 + "<br/>"
+        + "パラメータ名: param3 値: " + param3 + "<br/>"
         + "</body>"
         + "</html>";
 
@@ -30,7 +30,7 @@ public class App1 extends HttpServlet {
         response.getCharacterEncoding("UTF-8");
 
         //作成したHTMLを出力
-        response.getWriter().println(html);
+        response.getWriter().append(html);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
