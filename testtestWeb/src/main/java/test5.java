@@ -24,6 +24,5 @@ calc.setY(y);
 
 //パラメータの計算
 <%= sX %> + <%= sY %> = <%= calc.getAnswer() %>
-
 </body>
 </html>
