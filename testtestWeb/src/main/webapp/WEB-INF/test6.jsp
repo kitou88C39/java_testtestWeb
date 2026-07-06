@@ -17,6 +17,9 @@ pageEncoding="charset=UTF-8">
   </head>
   <body>
 
-
+  //都道府県リスト
+  <% for(int i=0; i<todoufukenList.size(); i++){%>
+    <%= todoufukenList.get(i) %>
+<% } %>
   </body>
 </html>
