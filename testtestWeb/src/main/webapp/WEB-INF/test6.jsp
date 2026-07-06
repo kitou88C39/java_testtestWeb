@@ -9,3 +9,14 @@ pageEncoding="charset=UTF-8">
     Todoufuken td = new Todoufuken();
     ArraList<String> todoufukenList = td.getList();
 %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+
+  </body>
+</html>
