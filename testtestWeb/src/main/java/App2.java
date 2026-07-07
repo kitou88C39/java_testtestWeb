@@ -16,6 +16,15 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 
     //パラメータの取得
     String str1 = req.getParameter("str1");
+    String str2 = req.getParameter("str2");
 
+    //モデルで文字列結合
+    Concat c = new Concat();
+    c.setStr1(str1);
+    c.setStr2(str2);
+    c.join()
+
+    //結合結果を取得
+    String ans = c.getAnswer();
     }
 }
