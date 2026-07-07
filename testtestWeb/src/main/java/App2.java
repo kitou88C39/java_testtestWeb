@@ -26,5 +26,13 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 
     //結合結果を取得
     String ans = c.getAnswer();
+
+    //結合結果をリクエストにセット
+    req.setAttribute("ansewer", ans);
+
+    //ビュー(JSP)に結果を出力してもらう
+    ServletContext ctx = getServletContext();
+    RequestDispatcher rd = ctx.getRequestDispacher("/WEB-INF/join.jsp");
+    rd.forward(req, resp);
     }
 }
