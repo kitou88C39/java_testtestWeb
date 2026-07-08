@@ -1,7 +1,15 @@
 public class SaveDataServlet1 extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // ここにデータ保存の処理を書く
+        // パラメータを取得
+        String data = req.getParameter("param");
+
+        //　セッションを生成
+        HttpSession session = req.getSession(true);
+
+        //　セッションに値をセット
+        session.setAttribute("param", data);
     }
 }
