@@ -24,8 +24,10 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
     req.setAttribute("keyword", kw);
     req.setAttribute("result", resultList);
 
-    //JSPへフォワード
+    //検索条件のJSPへフォワード
     ServletContext sc = getServletContext();
+    RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/sv3.jsp");
+    rd.forward(req,resp);
     }
   }
 }
