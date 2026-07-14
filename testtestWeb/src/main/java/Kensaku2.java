@@ -14,6 +14,7 @@ public class Kensaku {
     try{
     //ファイルの読み込み
     List<String> dataList = loadFile();
+
     //キーワードを含む行を検索
     for(String s : dataList){
         if(s.indexOf(kw) != -1){
