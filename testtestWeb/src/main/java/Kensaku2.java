@@ -4,6 +4,13 @@ public class Kensaku {
 
     ArrayList<String> resultList = new ArrayList<String>();
 
+    //キーワードが未入力なら、検索しない
+    if(kw.equals("")){
+        return resultList;
+    }
+    //キーワードを半角スペースで分解する
+    String[] kwArray = kw.split("");
+
     try{
     //ファイルの読み込み
     List<String> dataList = loadFile();
