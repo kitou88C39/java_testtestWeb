@@ -20,8 +20,13 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
     List<String> resultList=k.execute(kw);
 
     //検索結果の有無で分岐
+    if(resultList size()= 0){
 
+    req.setAttribute("keyword", kw);
 
+    ServletContext sc = getServletContext();
+    getRequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/sv3_out_err.jsp");
+    rd.forward(req, resp);
 
     } else {
 
