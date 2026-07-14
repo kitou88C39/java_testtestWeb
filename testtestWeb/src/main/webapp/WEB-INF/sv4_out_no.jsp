@@ -15,5 +15,13 @@ List<String> result = (List<String>)request.getAttribute("result");
 
 <h2>都道府県検索</h2>
 
+<%
+//フォームのキーワード欄にセットする値(null以外の時にセット)
+String inputValue = "";
+if(kw != null){
+    inputValue = kw;
+}
+%>
+
 </body>
 </html>
