@@ -22,5 +22,17 @@ List<String> result = (List<String>)request.getAttribute("result");
 
 <% } else if(result.size()== 0) { %>
 
+<h3> 『<% = kw %>』の検索結果はありません </h3>
+
+<% } else { %>
+
+<h3> 『<% = kw %>』の検索結果 </h3>
+
+<% for(String s: result) { %>
+    <%= $ %>
+<% } %>
+
+<% } %>
+
 </body>
 </html>
