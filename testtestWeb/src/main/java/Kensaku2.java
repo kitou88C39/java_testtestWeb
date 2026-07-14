@@ -28,6 +28,13 @@ public class Kensaku {
 
     private List<String> loadFile() throws FileFoundException, FileFoundException{
 
+    //キーワードで繰り返し検索
+    for(String k : kwArray){
+
+    //１つでも見つからない場合、falseを返す
+    if(s.indexOf(k) == -1){
+        return false;
     }
   }
+  return true;
 }
