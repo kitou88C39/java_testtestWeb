@@ -22,6 +22,11 @@ if(kw != null){
     inputValue = kw;
 }
 %>
+<form action="http://apsv/testWeb/sv4" method="get"/>
+キーワード
+    <input type="text" name="kw" value="<% inputValue %>" />
+    <input type="submit" value="検索" />
+</form>
 
 </body>
 </html>
