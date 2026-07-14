@@ -1,4 +1,4 @@
-public class Sv2 extends HttpServlet {
+public class sv3_out_err extends HttpServlet {
 
 @Override
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -6,7 +6,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 
 //検索条件のJSPにフォワード
     ServletContext sc = getServletContext();
-    RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/sv2_in.jsp");
+    RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/sv3_out_err.jsp");
     rd.forward(req,resp);
 
 @Override
@@ -16,9 +16,14 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
     //パラメータ(キーワード)を取得
     String kw=req.getParameter("kw");
 
-    //検索のクラスでキーワードを検索
     Kensaku e = new Kensaku();
     List<String> resultList=k.execute(kw);
+
+    //検索結果の有無で分岐
+
+
+
+    } else {
 
     //キーワードと検索結果をリクエストにセット
     req.setAttribute("keyword", kw);
