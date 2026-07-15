@@ -18,32 +18,23 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
     try {
     //DBに接続
     IntialContext ctx = new IntialContext();
+    DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/mysql");
+    conn = ds.getConnection();
 
-    //パラメータ(キーワード)を取得
-    String kw=req.getParameter("kw");
+    //SQLを発行
+    Statemenst stmt = conn.createStatement();
+    ResultSet rs = stmt.executeQuery("select now()");
 
-    Kensaku e = new Kensaku();
-    List<String> resultList=k.execute(kw);
+    //結果を取得
+    resq.getWriter().append("<html><header><meta charset=¥"UTF-8¥">");
+    resq.getWriter().append("</header><body>");
 
-    //検索結果の有無で分岐
-    if(resultList size()= 0){
-
-    req.setAttribute("keyword", kw);
-
-    ServletContext sc = getServletContext();
-    getRequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/sv3_out_err.jsp");
-    rd.forward(req, resp);
-
-    } else {
-
-    //キーワードと検索結果をリクエストにセット
-    req.setAttribute("keyword", kw);
-    req.setAttribute("result", resultList);
-
-    //検索条件のJSPへフォワード
-    ServletContext sc = getServletContext();
-    RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/sv3.jsp");
-    rd.forward(req,resp);
+    while(rs.next()){
+        resp.getWriter().appdend(rs.getString(1)).appdend("<br/>");
     }
+    rs.close();
+    stmt.close();
+
+    resq.getWriter().append("</body></html>");
   }
 }
