@@ -36,5 +36,14 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
     stmt.close();
 
     resq.getWriter().append("</body></html>");
+
+    } catch(Exception e){
+        e.printStackTrace();
+    } finally {
+    //接続を閉じる
+    conn.close();
+    } catch(Exception sqle){
   }
+ }
+}
 }
