@@ -13,6 +13,12 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+    Connection conn = null;
+
+    try {
+    //DBに接続
+    IntialContext ctx = new IntialContext();
+
     //パラメータ(キーワード)を取得
     String kw=req.getParameter("kw");
 
