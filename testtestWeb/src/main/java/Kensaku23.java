@@ -21,5 +21,19 @@ public void execute {
     yomiganaList = new ArrayList<String>();
 
     Connection conn = null;
+
+    try {
+    //DBに接続
+    InitialContext ctx = new InitialContext();
+    DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/mysql");
+    conn = ds.getConnection();
+
+    //SQLを発行
+    Statement stmt = conn.createStatement();
+    ResultSet rs = stmt.excuteQuery();
+
+    //結果を取得
+
+    }
 }
 }
