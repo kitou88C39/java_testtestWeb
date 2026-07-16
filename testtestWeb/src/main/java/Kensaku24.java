@@ -10,15 +10,11 @@ import javax.sql.DataSource;
 
 public class Kensaku24 {
 
-    private ArrayList<String> kenCodeList = null;
-    private ArrayList<String> kenNameList = null;
-    private ArrayList<String> yomiganaList = null;
+    private ArrayList<Todofuken> todofukenList = null;
 
 public void execute {
 
-    kenCodeList = new ArrayList<String>();
-    kenNameList = new ArrayList<String>();
-    yomiganaList = new ArrayList<String>();
+    todofukenList = new ArrayList<Todofuken>();
 
     Connection conn = null;
 
