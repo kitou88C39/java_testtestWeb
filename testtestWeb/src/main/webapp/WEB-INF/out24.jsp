@@ -1,19 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="charset=UTF-8">
 <%@ page import="java.util.List" %>
-<%
+<%@ page import="yurufuwa.prog.sample.Todofuken" %>
 
+<%
 ArrayList<String> kenCodeList =
-    (ArrayList<String>)request.getAttribute("ken_code_list");
-ArrayList<String> kenNameList =
-    (ArrayList<String>)request.getAttribute("ken_name_list");
-ArrayList<String> yomiganaList =
-    (ArrayList<String>)request.getAttribute("yomigana_list");
+    (ArrayList<String>)request.getAttribute("Todofuken_list");
+%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>都道府県一覧</title>
+
 </head>
 <body style="mergin:24px;">
 
