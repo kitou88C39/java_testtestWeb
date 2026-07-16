@@ -33,7 +33,17 @@ public void execute {
     ResultSet rs = stmt.excuteQuery();
 
     //結果を取得
+    while(rs.next()){
+      kenCodeList.add(rs.getString(1));
+      kenNameList.add(rs.getString(2));
+      yomiganaList.add(rs.getString(3));
+    }
+    rs.close();
+    stmt.close();
+    } catch(Exception e){
+       e.printStackTrace();
+    } finally {
+       try {
 
     }
-}
 }
