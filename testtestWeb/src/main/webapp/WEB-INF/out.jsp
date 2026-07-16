@@ -19,18 +19,19 @@ ArrayList<String> yomiganaList =
 
 <h2>都道府県検索</h2>
 
-<%
-//フォームのキーワード欄にセットする値(null以外の時にセット)
-String inputValue = "";
-if(kw != null){
-    inputValue = kw;
-}
-%>
-<form action="http://apsv/testWeb/sv4" method="get"/>
-キーワード
-    <input type="text" name="kw" value="<% inputValue %>" />
-    <input type="submit" value="検索" />
-</form>
+<table>
+<tr>
+<th>都道府県コード</th>
+<th>都道府県名</th>
+<th>読み仮名</th>
+</tr>
 
+<% for(String s: result) { %>
+    <%= $ %>
+<% } %>
+
+<% } %>
+
+</table>
 </body>
 </html>
