@@ -44,6 +44,23 @@ public void execute {
        e.printStackTrace();
     } finally {
        try {
+    //接続を閉じる
+        conn.close();
+    } catch(Exception e){
 
     }
+  }
+}
+
+public ArrayList<String> getKenCodeList(){
+    return kenCodeList;
+}
+
+public ArrayList<String> getNameCodeList(){
+    return kenNameList;
+}
+
+public ArrayList<String> getYomiganaList(){
+    return yomiganaList;
+}
 }
