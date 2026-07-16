@@ -26,12 +26,14 @@ ArrayList<String> yomiganaList =
 <th>読み仮名</th>
 </tr>
 
-<% for(String s: result) { %>
-    <%= $ %>
-<% } %>
+<% for(int i=0; i<kenCodeList.size(); i++>) { %>
+ <tr>
+  <td><%= kenCodeList.get(i) %></td>
+  <td><%= kenNameList.get(i) %></td>
+  <td><%= yomiganaList.get(i) %></td>
+</tr>
 
 <% } %>
-
 </table>
 </body>
 </html>
