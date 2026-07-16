@@ -4,30 +4,20 @@ public class Sv23 extends HttpServlet {
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-//検索条件のJSPにフォワード
-    ServletContext sc = getServletContext();
-    RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/sv2_in.jsp");
-    rd.forward(req,resp);
-
-@Override
-protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-    //パラメータ(キーワード)を取得
-    String kw=req.getParameter("kw");
-
-    //検索のクラスでキーワードを検索
+    //都道府県名の一覧を取得
     Kensaku e = new Kensaku();
-    List<String> resultList=k.execute(kw);
+    K.execute();
 
-    //キーワードと検索結果をリクエストにセット
-    req.setAttribute("keyword", kw);
-    req.setAttribute("result", resultList);
+    ArrayList<String>kenCodeList = k.getKenCodeList();
+    ArrayList<String>kenNameList = k.getKenNameList();
+    ArrayList<String>yomiganaList = k.getYomiganaList();
 
-    //検索条件のJSPへフォワード
+    req.setAttribute("ken_code_list", kenCodeList);
+    req.setAttribute("ken_name_list", kenNameList);
+    req.setAttribute("yomigana_list", yomiganaList);
+
     ServletContext sc = getServletContext();
-    RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/sv3.jsp");
+    RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/jsp/out.jsp");
     rd.forward(req,resp);
     }
   }
-}
