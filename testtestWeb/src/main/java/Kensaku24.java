@@ -30,12 +30,17 @@ public void execute {
 
     //結果を取得
     while(rs.next()){
-      kenCodeList.add(rs.getString(1));
-      kenNameList.add(rs.getString(2));
-      yomiganaList.add(rs.getString(3));
+
+      Todofuken t = new Todofuken();
+      t.setKenCode(rs.getString(1));
+      t.setKenName(rs.getString(2));
+      t.setYogigana(rs.getString(3));
+
+      todofukenList.add(t);
     }
     rs.close();
     stmt.close();
+
     } catch(Exception e){
        e.printStackTrace();
     } finally {
