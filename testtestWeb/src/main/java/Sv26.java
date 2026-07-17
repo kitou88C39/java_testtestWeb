@@ -4,7 +4,7 @@ public class Sv26 extends HttpServlet {
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-    //検索条件を表示
+    //データ追加ページを表示
     ServletContext sc = getServletContext();
     RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/jsp/out.jsp");
     rd.forward(req,resp);
@@ -13,6 +13,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 @Override
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+    //入力パラメータを取得
 
   }
  }
