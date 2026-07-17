@@ -25,5 +25,8 @@ int updateRows =(String)request.getAttribute("update_rows");
 <tr><td>読み仮名</td><td><%= yomigana %></td></tr>
 </table>
 
+<h3>追加の件数</h3>
+<%= updateRows %>件
+
 </body>
 </html>
