@@ -16,7 +16,7 @@ ArrayList<String> kenCodeList =
 </head>
 <body>
 
-<h2>都道府県検索</h2>
+<h2>都道府県一覧</h2>
 
 <table>
 <tr>
