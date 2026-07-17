@@ -23,6 +23,14 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
     Tuika t = new Tuika();
     t.execute(kenCode, kenName, yomigana);
 
+    int updateRowa = t.getUpdateRows();
+
+    //結果をリクエストにセット
+    req.setAttribute("ken_code", kenCode);
+    req.setAttribute("ken_name", kenName);
+    req.setAttribute("yomigana", yomigana);
+    req.setAttribute("update_Rows", updateRows);
+
 
 
   }
