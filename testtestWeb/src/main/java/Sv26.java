@@ -15,6 +15,15 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
     //入力パラメータを取得
+    String kenCode = req.getParameter("txtKenCode");
+    String kenName = req.getParameter("txtKenName");
+    String yomigana = req.getParameter("txtYomigana");
+
+    //データの追加
+    Tuika t = new Tuika();
+    t.execute(kenCode, kenName, yomigana);
+
+
 
   }
  }
