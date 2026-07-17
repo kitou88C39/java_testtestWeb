@@ -2,19 +2,15 @@ package yurufuwa prog sample;
 
 import java sql.Connection;
 import java sql.ResultSet;
-import java sql.Statement;
-import java sql.ArrayList;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class Kensaku24 {
+public class Tusika26 {
 
-    private ArrayList<Todofuken> todofukenList = null;
+    piravate int updateRows = -1;
 
-public void execute {
-
-    todofukenList = new ArrayList<Todofuken>();
+public void execute(String kenCode, String kenName, String yomigana) {
 
     Connection conn = null;
 
