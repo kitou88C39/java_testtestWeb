@@ -31,7 +31,10 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
     req.setAttribute("yomigana", yomigana);
     req.setAttribute("update_Rows", updateRows);
 
-
-
+    //検索条件を表示
+    ServletContext sc = getServletContext();
+    RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/jsp/out.jsp");
+    rd.forward(req,resp);
+    }
   }
  }
