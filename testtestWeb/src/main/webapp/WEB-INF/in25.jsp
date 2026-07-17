@@ -15,21 +15,13 @@ ArrayList<String> kenCodeList =
 </head>
 <body>
 
-<h2>都道府県一覧</h2>
+<h2>検索条件</h2>
 
-<table>
-<tr>
-<th>都道府県コード</th>
-<th>都道府県名</th>
-<th>読み仮名</th>
-</tr>
-<% for(Todofuken t : todofukenList) { %>
- <tr>
-  <td><%= t.getKenCode() %></td>
-  <td><%= t.getKenName() %></td>
-  <td><%= t.getYomigana() %></td>
-</tr>
-<% } %>
-</table>
+<form action="/sv25" method="post">
+検索条件:
+    <input type="text" name="txtKenName"/>
+    <input type="submit" value="検索"/>
+</form>
+
 </body>
 </html>
