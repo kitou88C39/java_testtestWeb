@@ -12,11 +12,11 @@ ArrayList<String> kenCodeList =
 <head>
 <meta charset="UTF-8">
 <title>都道府県一覧</title>
-
+<style>table, th, td { border-col: collapse; border: 1px black solid;}
 </head>
-<body style="mergin:24px;">
+<body>
 
-<h2>都道府県検索</h2>
+<h2>都道府県一覧</h2>
 
 <table>
 <tr>
