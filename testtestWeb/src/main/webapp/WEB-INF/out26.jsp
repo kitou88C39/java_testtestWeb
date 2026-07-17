@@ -18,11 +18,12 @@ int updateRows =(String)request.getAttribute("update_rows");
 
 <h2>データの追加結果</h2>
 
-<form action="/sv25" method="post">
-検索条件:
-    <input type="text" name="txtKenName"/>
-    <input type="submit" value="検索"/>
-</form>
+<h3>入力内容</h3>
+<table>
+<tr><td>都道府県コード</td><td><%= kenCode %></td></tr>
+<tr><td>都道府県名</td><td><%= kenName %></td></tr>
+<tr><td>読み仮名</td><td><%= yomigana %></td></tr>
+</table>
 
 </body>
 </html>
