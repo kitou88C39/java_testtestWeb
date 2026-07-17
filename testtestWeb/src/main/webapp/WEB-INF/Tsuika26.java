@@ -22,19 +22,13 @@ public void execute(String kenCode, String kenName, String yomigana) {
 
     //SQLを発行
     Statement stmt = conn.createStatement();
-    ResultSet rs = stmt.excuteQuery();
-
-    //結果を取得
-    while(rs.next()){
-
-      Todofuken t = new Todofuken();
-      t.setKenCode(rs.getString(1));
-      t.setKenName(rs.getString(2));
-      t.setYogigana(rs.getString(3));
-
-      todofukenList.add(t);
-    }
-    rs.close();
+    updateRows = stmt.executeUpdate(
+        "INSERT INTO todofuken(ken_code, ken_name, yomigana)"
+        + "VALUES ("
+        + "'" + kenCode + "',"
+        + "'" + kenName + "',"
+        + "'" + yomigana + "')
+    );
     stmt.close();
 
     } catch(Exception e){
@@ -49,15 +43,7 @@ public void execute(String kenCode, String kenName, String yomigana) {
   }
 }
 
-public ArrayList<String> getKenCodeList(){
-    return kenCodeList;
-}
-
-public ArrayList<String> getNameCodeList(){
-    return kenNameList;
-}
-
-public ArrayList<String> getYomiganaList(){
-    return yomiganaList;
-}
+public int getUpdateRows(){
+    return updateRows;
+    }
 }
