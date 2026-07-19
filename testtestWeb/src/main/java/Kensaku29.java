@@ -10,7 +10,7 @@ public class Kensaku29 {
 
     piravate ArrayList<Todofuken> todofukenList = null;
 
-public void execute(String kenCode, String kenName) {
+public void execute(String kenName) throws Exception {
 
     Connection conn = null;
 
@@ -23,11 +23,12 @@ public void execute(String kenCode, String kenName) {
     //SQLを発行
     Statement stmt = conn.createStatement();
     updateRows = stmt.executeUpdate(
-        "UPDATE todofuken"
-        + "SET ken_name = '" + kenName "'"
-        + "WHERE kenCode = '" + kenCode "'"
+        "SELECT * FROM todofuken WHERE ken_name LIKE '%"
+        + kenName
+        + "%'"
     );
-    stmt.close();
+
+    todofukenList = new ArrayList<Todofuken>();
 
     } catch(Exception e){
        e.printStackTrace();
