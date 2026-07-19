@@ -4,7 +4,7 @@ public class Sv29 extends HttpServlet {
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-    //データ更新ページを表示
+    //検索条件を表示
     ServletContext sc = getServletContext();
     RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/jsp/out.jsp");
     rd.forward(req,resp);
@@ -14,24 +14,27 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-    //入力パラメータを取得
-    String kenCode = req.getParameter("txtKenCode");
+    //検索条件を取得
     String kenName = req.getParameter("txtKenName");
 
-    //データの削除
-    Sakujo t = new Sakujo();
-    t.excute(kenCode, kenName);
+    try {
+    //都道府県名の一覧を取得
+    Kensaku k = new Kensaku();
+    k.excute(kenName);
 
-    int updateRowa = t.getUpdateRows();
+    ArrayList<Todofuken> todofukenList = k.getTodofukenList();
 
     //結果をリクエストにセット
-    req.setAttribute("ken_code", kenCode);
     req.setAttribute("ken_name", kenName);
     req.setAttribute("update_Rows", updateRows);
 
     //検索条件を表示
     ServletContext sc = getServletContext();
     RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/jsp/out.jsp");
+    rd.forward(req,resp);
+    } catch(Exception e) {
+    ServletContext sc = getServletContext();
+    RequestDispatcher rd = sc.getRequestDispatcher("/WEB-INF/jsp/err.jsp");
     rd.forward(req,resp);
     }
   }
