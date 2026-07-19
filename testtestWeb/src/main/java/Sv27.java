@@ -16,19 +16,15 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 
     //入力パラメータを取得
     String kenCode = req.getParameter("txtKenCode");
-    String kenName = req.getParameter("txtKenName");
-    String yomigana = req.getParameter("txtYomigana");
 
-    //データの追加
-    Tuika t = new Tuika();
-    t.execute(kenCode, kenName, yomigana);
+    //データの削除
+    Sakujo t = new Sakujo();
+    t.excute(kenCode);
 
     int updateRowa = t.getUpdateRows();
 
     //結果をリクエストにセット
     req.setAttribute("ken_code", kenCode);
-    req.setAttribute("ken_name", kenName);
-    req.setAttribute("yomigana", yomigana);
     req.setAttribute("update_Rows", updateRows);
 
     //検索条件を表示
