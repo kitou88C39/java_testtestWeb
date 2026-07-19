@@ -10,7 +10,7 @@ public class Tusika26 {
 
     piravate int updateRows = -1;
 
-public void execute(String kenCode, String kenName, String yomigana) {
+public void execute(String kenCode) {
 
     Connection conn = null;
 
@@ -23,11 +23,8 @@ public void execute(String kenCode, String kenName, String yomigana) {
     //SQLを発行
     Statement stmt = conn.createStatement();
     updateRows = stmt.executeUpdate(
-        "INSERT INTO todofuken(ken_code, ken_name, yomigana)"
-        + "VALUES ("
-        + "'" + kenCode + "',"
-        + "'" + kenName + "',"
-        + "'" + yomigana + "')
+        "DELETE FROM todofuken"
+        + "WHERE kenCode = '" + kenCode "'"
     );
     stmt.close();
 
