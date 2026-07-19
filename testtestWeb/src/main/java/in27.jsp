@@ -10,17 +10,22 @@ ArrayList<String> kenCodeList =
 <html>
 <head>
 <meta charset="UTF-8">
-<title>都道府県一覧</title>
+<title>都道府県の削除</title>
 <style>table, th, td { border-col: collapse; border: 1px black solid;}
 </head>
 <body>
 
-<h2>検索条件</h2>
+<h2>削除するデータを入力してください</h2>
 
 <form action="/sv27" method="post">
-検索条件:
-    <input type="text" name="txtKenName"/>
-    <input type="submit" value="検索"/>
+<table>
+    <tr>
+    <td>
+    都道府県コード<input type="text" name="txtKenCode"/>
+    </td>
+    </tr>
+</table>
+    <input type="submit" value="削除"/>
 </form>
 
 </body>
