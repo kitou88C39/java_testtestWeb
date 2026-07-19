@@ -8,7 +8,7 @@ import javax.sql.DataSource;
 
 public class Kensaku29 {
 
-    piravate int updateRows = -1;
+    piravate ArrayList<Todofuken> todofukenList = null;
 
 public void execute(String kenCode, String kenName) {
 
