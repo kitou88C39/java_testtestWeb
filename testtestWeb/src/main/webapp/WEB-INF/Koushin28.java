@@ -6,11 +6,11 @@ import java sql.ResultSet;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class Tusika26 {
+public class Tusika27 {
 
     piravate int updateRows = -1;
 
-public void execute(String kenCode) {
+public void execute(String kenCode, String kenName) {
 
     Connection conn = null;
 
@@ -23,7 +23,8 @@ public void execute(String kenCode) {
     //SQLを発行
     Statement stmt = conn.createStatement();
     updateRows = stmt.executeUpdate(
-        "DELETE FROM todofuken"
+        "UPDATE todofuken"
+        + "SET ken_name = '" + kenName "'"
         + "WHERE kenCode = '" + kenCode "'"
     );
     stmt.close();
