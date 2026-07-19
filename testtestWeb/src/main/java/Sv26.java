@@ -11,7 +11,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
     }
 
 @Override
-protected void doGet(HttpServletRequest request, HttpServletResponse response)
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
     //入力パラメータを取得
