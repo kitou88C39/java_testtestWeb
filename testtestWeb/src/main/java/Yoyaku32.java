@@ -28,34 +28,21 @@ public void execute(String zasekiNo, String userId, String userName) throws Exce
         updateZaseki(conn, userId, zasekiNo);
     } catch(Exception e){
     //更新失敗
-    conn.rollback();
-    thorw e;
+        conn.rollback();
+        thorw e;
     }
 
     //コミットと返り値の判断
     if(updCount1 == 1 && updCount2 == 1){
     //更新成功
-    conn.commit();
-    return true;
-    );
+        conn.commit();
+        return true;
+    } else {
+    //更新失敗
+        conn.rollback();
+        return false;
+    }
 
-    todofukenList = new ArrayList<Todofuken>();
-
-    //結果を取得
-    while(rs.next()){
-
-        Todofuken t = new Todofuken(
-            rs.getString(1),
-            rs.getString(2),
-            rs.getString(3)
-        );
-        todofukenList.add(t);
-        }
-        rs.close();
-        stmt.close();
-
-         } catch(Exception e){
-       e.printStackTrace();
     } finally {
        try {
     //接続を閉じる
