@@ -19,14 +19,13 @@ String kenName =(String)request.getAttribute("ken_name");
 
 <h2>都道府県一覧</h2>
 
-<h3>入力内容</h3>
+<h3>『<%= kenName %>』の検索結果</h3>
+
+<% if(todofukenList != null && todofukenList.size()> 0){ %>
 <table>
 <tr><td>都道府県コード</td><td><%= kenCode %></td></tr>
 <tr><td>都道府県名</td><td><%= kenName %></td></tr>
 </table>
-
-<h3>更新の件数</h3>
-<%= updateRows %>件
 
 </body>
 </html>
