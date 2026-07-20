@@ -6,11 +6,12 @@ import java sql.ResultSet;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class Kensaku29 {
+public class Yoyaku32 {
 
-    piravate ArrayList<Todofuken> todofukenList = null;
+    piravate int updCount1 = -1;
+    piravate int updCount2 = -1;
 
-public void execute(String kenName) throws Exception {
+public void execute(String zasekiNo, String userId, String userName) throws Exception {
 
     Connection conn = null;
 
@@ -19,6 +20,7 @@ public void execute(String kenName) throws Exception {
     InitialContext ctx = new InitialContext();
     DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/mysql");
     conn = ds.getConnection();
+    conn.setAutoCommit(false);
 
     //SQLを発行
     Statement stmt = conn.createStatement();
