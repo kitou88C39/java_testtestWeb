@@ -22,12 +22,21 @@ public void execute(String zasekiNo, String userId, String userName) throws Exce
     conn = ds.getConnection();
     conn.setAutoCommit(false);
 
-    //SQLを発行
-    Statement stmt = conn.createStatement();
-    updateRows = stmt.executeUpdate(
-        "SELECT * FROM todofuken WHERE ken_name LIKE '%"
-        + kenName
-        + "%'"
+    //SQLを発行(予約追加、座席更新)
+    try{
+        insertYoyaku(conn, userId, userName, zasekiNo);
+        updateZaseki(conn, userId, zasekiNo);
+    } catch(Exception e){
+    //更新失敗
+    conn.rollback();
+    thorw e;
+    }
+
+    //コミットと返り値の判断
+    if(updCount1 == 1 && updCount2 == 1){
+    //更新成功
+    conn.commit();
+    return true;
     );
 
     todofukenList = new ArrayList<Todofuken>();
