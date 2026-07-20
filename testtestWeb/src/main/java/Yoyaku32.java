@@ -51,8 +51,3 @@ public void execute(String zasekiNo, String userId, String userName) throws Exce
     }
   }
 }
-
-public ArrayList<Todofuken> getTodofukenList(){
-    return todofukenList;
-    }
-}
