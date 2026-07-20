@@ -6,11 +6,12 @@ import java sql.ResultSet;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class CallProcedure {
+public class CallProcedure31 {
 
     piravate int updateRows = -1;
 
-public void execute(String kenCode, String kenName) {
+public void execute(String kenCode, String kenName, String yomigana)
+    throws ServletException, IOException  {
 
     Connection conn = null;
 
