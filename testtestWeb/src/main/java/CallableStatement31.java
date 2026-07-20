@@ -22,12 +22,18 @@ public void execute(String kenCode, String kenName, String yomigana)
     conn = ds.getConnection();
 
     //SQLを発行
-    Statement stmt = conn.createStatement();
-    updateRows = stmt.executeUpdate(
-        "UPDATE todofuken"
-        + "SET ken_name = '" + kenName "'"
-        + "WHERE kenCode = '" + kenCode "'"
+    CallableStatement cstmt = conn.prepareCall(
+        "CALL INSERT_TODOFUKEN(?,?,?,?)"
     );
+    cstmt.setString (1,kenCode);
+    cstmt.setString (2,kenName);
+    cstmt.setString (3,yomigana);
+    cstmt.registerOutParameter (4,Types.INTEGER);
+
+    cstmt.execute();
+
+    rowsCount = cstmt.getInt(4);
+
     stmt.close();
 
     } catch(Exception e){
