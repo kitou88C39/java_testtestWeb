@@ -1,20 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="charset=UTF-8">
+<% page import="java.util.ArrayList" %>
+<% page import="yurufuwa.prog.sample.Todofuken" %>
+
 <%
-String kenCode =(String)request.getAttribute("ken_code");
+ArrayList<Todofuken> todofukenList =
+    (ArrayList<Todofuken>)request.getAttribute("todofuken_list");
 String kenName =(String)request.getAttribute("ken_name");
-int updateRows =(String)request.getAttribute("update_rows");
 %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>都道府県データ更新</title>
+<title>都道府県一覧</title>
 <style>table, th, td { border-col: collapse; border: 1px black solid;}
 </head>
 <body>
 
-<h2>データの更新結果</h2>
+<h2>都道府県一覧</h2>
 
 <h3>入力内容</h3>
 <table>
