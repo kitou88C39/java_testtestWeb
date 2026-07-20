@@ -6,11 +6,11 @@ import java sql.ResultSet;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class CallProcedure31 {
+public class CallProcedure {
 
-    piravate ArrayList<Todofuken> todofukenList = null;
+    piravate int updateRows = -1;
 
-public void execute(String kenName) throws Exception {
+public void execute(String kenCode, String kenName) {
 
     Connection conn = null;
 
@@ -21,40 +21,27 @@ public void execute(String kenName) throws Exception {
     conn = ds.getConnection();
 
     //SQLを発行
-    PreparedStatement pstmt = conn.preparedStatement(
-        "SELECT * FROM todofuken WHERE ken_name = ?"
+    Statement stmt = conn.createStatement();
+    updateRows = stmt.executeUpdate(
+        "UPDATE todofuken"
+        + "SET ken_name = '" + kenName "'"
+        + "WHERE kenCode = '" + kenCode "'"
     );
-    pstmt.setString(1, "%" + kenName + "%");
+    stmt.close();
 
-    ResultSet rs = pstmt.executeQuery();
-
-    todofukenList = new ArrayList<Todofuken>();
-
-    //結果を取得
-    while(rs.next()){
-
-        Todofuken t = new Todofuken(
-            rs.getString(1),
-            rs.getString(2),
-            rs.getString(3)
-        );
-        todofukenList.add(t);
-        }
-        rs.close();
-        stmt.close();
-
-         } catch(Exception e){
+    } catch(Exception e){
        e.printStackTrace();
     } finally {
        try {
     //接続を閉じる
         conn.close();
     } catch(Exception e){
+
     }
   }
 }
 
-public ArrayList<Todofuken> getTodofukenList(){
-    return todofukenList;
+public int getUpdateRows(){
+    return updateRows;
     }
 }
