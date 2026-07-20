@@ -21,12 +21,12 @@ public void execute(String kenName) throws Exception {
     conn = ds.getConnection();
 
     //SQLを発行
-    Statement stmt = conn.createStatement();
-    updateRows = stmt.executeUpdate(
-        "SELECT * FROM todofuken WHERE ken_name LIKE '%"
-        + kenName
-        + "%'"
+    PreparedStatement pstmt = conn.preparedStatement(
+        "SELECT * FROM todofuken WHERE ken_name = ?"
     );
+    pstmt.setString(1, kenName);
+
+    ResultSet rs = pstmt.executeQuery();
 
     todofukenList = new ArrayList<Todofuken>();
 
