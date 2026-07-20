@@ -24,7 +24,7 @@ public void execute(String kenName) throws Exception {
     PreparedStatement pstmt = conn.preparedStatement(
         "SELECT * FROM todofuken WHERE ken_name = ?"
     );
-    pstmt.setString(1, kenName);
+    pstmt.setString(1, "%" + kenName + "%");
 
     ResultSet rs = pstmt.executeQuery();
 
