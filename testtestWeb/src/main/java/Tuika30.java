@@ -24,12 +24,15 @@ public void execute(String kenCode, String kenName, String yomigana) {
     Statement stmt = conn.createStatement();
     updateRows = stmt.executeUpdate(
         "INSERT INTO todofuken(ken_code, ken_name, yomigana)"
-        + "VALUES ("
-        + "'" + kenCode + "',"
-        + "'" + kenName + "',"
-        + "'" + yomigana + "')
+        + "VALUES ("?, ?, ?)"
     );
-    stmt.close();
+    pstmt.setString(1, kenCode);
+    pstmt.setString(2, kenName);
+    pstmt.setString(3, yomigana);
+
+    updateRows = pstmt.executeUpdate();
+
+    pstmt.close();
 
     } catch(Exception e){
        e.printStackTrace();
